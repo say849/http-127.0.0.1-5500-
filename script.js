@@ -1,58 +1,37 @@
-// Smooth Scroll
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', function(e) {
-    e.preventDefault();
-    const section = document.querySelector(this.getAttribute('href'));
-    section.scrollIntoView({ behavior: 'smooth' });
-  });
-});
+// كتابة تلقائية في العنوان
+const text = "فلورينا .. سحر كل مناسبة!";
+let index = 0;
 
-// Reveal on Scroll
-const revealElements = document.querySelectorAll('.card, .gallery-grid img');
-function revealOnScroll() {
-  const triggerBottom = window.innerHeight * 0.9;
-  revealElements.forEach(el => {
-    const boxTop = el.getBoundingClientRect().top;
-    if (boxTop < triggerBottom) {
-      el.classList.add('show');
+function typeText() {
+  const typedText = document.getElementById("typed-text");
+  if (index < text.length) {
+    typedText.innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeText, 100);
+  }
+}
+window.onload = typeText;
+
+// تغيير الخلفية كل فترة
+const colors = [
+  "linear-gradient(to right, #4b2c4d, #7c4976)",
+  "linear-gradient(to right, #3b1f2b, #6a3c5a)",
+  "linear-gradient(to right, #2c3e50, #4ca1af)"
+];
+let current = 0;
+setInterval(() => {
+  document.body.style.background = colors[current];
+  document.body.style.transition = "background 2s ease";
+  current = (current + 1) % colors.length;
+}, 10000); // كل 10 ثواني
+
+// تأثير ظهور العناصر عند التمرير
+const faders = document.querySelectorAll('.fade-in');
+window.addEventListener('scroll', () => {
+  faders.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight - 100) {
+      el.classList.add('visible');
     }
   });
-}
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('load', revealOnScroll);
-
-// زر الرجوع لأعلى
-const scrollBtn = document.getElementById("scrollTopBtn");
-window.onscroll = function () {
-  scrollBtn.style.display = window.scrollY > 300 ? "block" : "none";
-};
-scrollBtn.onclick = function () {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
-
-// كتابة متحركة
-const textArray = ["فلورينا", "تنسيق حفلات", "زهور فاخرة", "حفلات زفاف ساحرة"];
-let current = 0;
-let char = 0;
-function type() {
-  const typedText = document.getElementById("typed-text");
-  if (char < textArray[current].length) {
-    typedText.innerHTML += textArray[current].charAt(char);
-    char++;
-    setTimeout(type, 100);
-  } else {
-    setTimeout(erase, 2000);
-  }
-}
-function erase() {
-  const typedText = document.getElementById("typed-text");
-  if (char > 0) {
-    typedText.innerHTML = textArray[current].substring(0, char - 1);
-    char--;
-    setTimeout(erase, 50);
-  } else {
-    current = (current + 1) % textArray.length;
-    setTimeout(type, 300);
-  }
-}
-document.addEventListener("DOMContentLoaded", type);
+});

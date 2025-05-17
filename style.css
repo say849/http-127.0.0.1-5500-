@@ -1,194 +1,456 @@
+/* تعميم */
+/* الخط العام للموقع */
+body {
+  font-family: 'Cairo', sans-serif;
+}
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Tajawal', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Cairo', sans-serif;
 }
 
 body {
-  background: #fffafc;
-  color: #333;
-  line-height: 1.6;
+  background: linear-gradient(to bottom right, #d88ca4, #b85f89, #8a3d63);
+  font-family: 'Cairo', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #131010; /* لتكون النصوص واضحة فوق الخلفية الغامقة */
 }
 
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 20px;
+
+/* الهيدر */
+header {
+  background-image: url('images/WhatsApp\ Image\ 2025-05-16\ at\ 8.26.01\ AM.jpeg'); /* غيّر هذا حسب اسم الصورة */
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 40px 0;
+  position: relative;
+  text-align: center;
+}
+
+header .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-header {
-  background: #fff;
-  padding: 20px 0;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  padding: 0 20px;
+  flex-wrap: wrap;
 }
 
 .logo {
-  width: 120px;
+  max-width: 120px;
 }
 
 nav a {
   margin: 0 15px;
-  color: #e91e63;
+  color: white;
   text-decoration: none;
   font-weight: bold;
+  font-size: 18px;
 }
 
-section {
-  padding: 60px 20px;
+nav a:hover {
+  color: #ffd1dc;
+}
+
+/* من نحن */
+.about {
+  padding: 50px 20px;
+  text-align: center;
+  background: #fff0f5;
+}
+
+.about h2 {
+  font-size: 32px;
+  color: #d63384;
+  margin-bottom: 20px;
+}
+
+/* خدماتنا */
+.services {
+  padding: 50px 20px;
+  background-color: #fdf3f8;
   text-align: center;
 }
 
-h2 {
-  font-size: 2.5em;
-  color: #e91e63;
+.services h2 {
+  font-size: 32px;
+  color: #c2185b;
   margin-bottom: 30px;
 }
 
-.about p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 1.1em;
-  color: #555;
-}
-
-.services .grid {
+.grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
 }
 
 .card {
-  background: #fff;
-  padding: 30px;
+  background-color: #fff;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
 .card i {
-  font-size: 40px;
+  font-size: 30px;
   color: #e91e63;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+/* المعرض */
+.gallery {
+  padding: 50px 20px;
+  background: #f8f9fa;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #b71c1c;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 10px;
 }
 
 .gallery-grid img {
   width: 100%;
+  height: auto;
   border-radius: 8px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* تواصل معنا */
+.contact {
+  background-color: #fff0f5;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.contact h2 {
+  font-size: 28px;
+  color: #d63384;
+  margin-bottom: 10px;
 }
 
 .contact p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .socials a {
   margin: 0 10px;
   font-size: 24px;
-  color: #e91e63;
-  text-decoration: none;
+  color: #c2185b;
 }
 
+.socials a:hover {
+  color: #880e4f;
+}
+
+/* زر واتساب */
 .whatsapp-float {
   position: fixed;
   bottom: 20px;
   left: 20px;
-  background: #25D366;
+  background-color: #25d366;
   color: white;
-  font-size: 24px;
-  padding: 12px 15px;
+  padding: 10px 15px;
   border-radius: 50%;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  font-size: 24px;
   z-index: 1000;
 }
-.card, .gallery-grid img {
+
+/* زر الرجوع لأعلى */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #c2185b;
+  color: white;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+
+#scrollTopBtn:hover {
+  background-color: #880e4f;
+}
+
+/* تأثير الكتابة للعناوين */
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid #fff;
+  width: 0;
+  animation: typing 4s steps(40, end) forwards, blink 0.75s step-end infinite;
+  direction: rtl;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink {
+  50% { border-color: transparent }
+}
+
+/* حركة عند التمرير */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* تأثير نبض */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+
+
+.gallery {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.gallery h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #fff;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+/* معرض الصور */
+.gallery {
+  padding: 50px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #3c2a4d, #1f1b2e);
+}
+
+.gallery h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 10px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* تأثيرات النصوص */
+h1, h2, h3, p, a {
+  transition: all 0.3s ease-in-out;
+}
+
+/* عند تمرير الماوس */
+a:hover, .card:hover h3 {
+  color: #ff66a6;
+  transform: scale(1.05);
+}
+
+/* زر الرجوع لأعلى */
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background-color: #ff66a6;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  display: none;
+  z-index: 999;
+}
+#scrollTopBtn:hover {
+  background-color: #e05593;
+}
+
+/* زر واتساب عائم */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: #fff;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 22px;
+  z-index: 999;
+}
+.whatsapp-float:hover {
+  background-color: #1ebe57;
+}
+
+/* قسم المعرض */
+.gallery {
+  padding: 40px 0;
+  background-color: #1a1a1a;
+}
+.gallery h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  padding: 0 20px;
+}
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+.gallery-grid img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #ff66a6;
+}
+
+/* تأثير الكتابة (تظهر تدريجيًا) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero-title {
+  animation: fadeInUp 2s ease-in-out;
+}
+
+/* قسم الفلاتر للمعرض (تصنيفات) */
+.filter-buttons {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.filter-buttons button {
+  background-color: #ff66a6;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+.filter-buttons button:hover {
+  background-color: #e05593;
+}
+
+/* كروت الخدمات */
+.card {
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* الفوتر */
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 40px;
+}
+
+/* متجاوب */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+h2, h3 {
+  position: relative;
+  animation: fadeSlideIn 1.2s ease forwards;
+  opacity: 0;
+}
+
+/* تأثير دخول النص */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* تأثيرات التمرير */
+.fade-in {
   opacity: 0;
   transform: translateY(20px);
   transition: all 0.6s ease-in-out;
 }
 
-.card.show, .gallery-grid img.show {
+.fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-}
-/* زر الرجوع لأعلى */
-#scrollTopBtn {
-  position: fixed;
-  bottom: 30px;
-  right: 20px;
-  z-index: 999;
-  background: #e91e63;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 50%;
-  font-size: 20px;
-  display: none;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* العنوان المتحرك */
-.hero-title {
-  font-size: 2em;
-  color: #e91e63;
-  margin-top: 20px;
-  animation: fadeIn 1.5s ease-in-out;
-}
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.map-container {
-  margin-top: 20px;
-  border: 2px solid #e91e63;
-  border-radius: 10px;
-  overflow: hidden;
-}
-body {
-  margin: 0;
-  font-family: 'Cairo', sans-serif;
-  background: linear-gradient(to right, #f8e1f4, #ffe4ec);
-  color: #333;
-}
-.main-header {
-  background: linear-gradient(to right, #ff8fa3, #ffc4d6);
-  padding: 80px 20px;
-  text-align: center;
-  color: white;
-}
-
-
-.main-header h1 {
-  font-size: 48px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  margin: 0;
-}
-.main-header {
-  background-image: url("images/WhatsApp\ Image\ 2025-05-16\ at\ 2.24.49\ AM.jpeg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  padding: 80px 20px;
-  text-align: center;
-  color: white;
 }
